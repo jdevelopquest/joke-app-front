@@ -1,10 +1,9 @@
-@import url("../fonts/sour-gummy/sour-gummy.css");
-
 @font-face {
   font-family: "Sour Gummy";
   font-weight: 700;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+  src: local("Sour Gummy Black"), local("SourGummy-Black"), url("../fonts/sour-gummy/sour-gummy-black.woff2") format("woff2");
 }
 
 :root {
