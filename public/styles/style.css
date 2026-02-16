@@ -1,9 +1,9 @@
-@import url("../fonts/sour-gummy/sour-gummy.css");
 @font-face {
   font-family: "Sour Gummy";
   font-weight: 700;
   font-style: normal;
-  font-variation-settings: "wdth" 100; }
+  font-variation-settings: "wdth" 100;
+  src: url("../fonts/sour-gummy/sour-gummy-black.woff2") format("woff2"); }
 :root {
   --main-color: #E20010;
   --secondary-color: #3E1E13;
@@ -32,11 +32,11 @@ header {
   padding: 4rem 0; }
   header h1 {
     margin: 0 auto;
-    width: 300px;
+    width: 355px;
     height: 55px;
     text-align: center;
     border: 6px solid var(--main-boder-color);
-    border-radius: 16px;
+    border-radius: 32px;
     font-size: 3rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -54,11 +54,11 @@ button:hover {
 
 #btn-joke {
   color: var(--secondary-color);
-  width: 250px;
-  height: 45px;
+  width: 350px;
+  height: 50px;
   padding: 1rem 2rem;
   background-color: var(--main-background-color);
-  border-radius: 16px;
+  border: none;
   font-size: 1.4rem;
   font-weight: bold;
   text-transform: uppercase;
