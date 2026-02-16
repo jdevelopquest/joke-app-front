@@ -1,0 +1,76 @@
+@import url("../fonts/sour-gummy/sour-gummy.css");
+@font-face {
+  font-family: "Sour Gummy";
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100; }
+:root {
+  --main-color: #E20010;
+  --secondary-color: #3E1E13;
+  --main-background-color: #FCF000;
+  --main-boder-color: #F8F4A9; }
+
+html {
+  font-size: 62.5%; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  min-height: 100vh;
+  background-color: var(--main-background-color);
+  color: var(--main-color);
+  font-size: 2rem;
+  font-family: "Sour Gummy", sans-serif; }
+
+header {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4rem 0; }
+  header h1 {
+    margin: 0 auto;
+    width: 300px;
+    height: 55px;
+    text-align: center;
+    border: 6px solid var(--main-boder-color);
+    border-radius: 16px;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px; }
+
+main {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--secondary-color); }
+
+button:hover {
+  cursor: pointer; }
+
+#btn-joke {
+  color: var(--secondary-color);
+  width: 250px;
+  height: 45px;
+  padding: 1rem 2rem;
+  background-color: var(--main-background-color);
+  border-radius: 16px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
+
+#joke-container {
+  width: 100%;
+  padding: 50px 25px;
+  text-align: center; }
+  #joke-container details {
+    font-size: 2.6rem; }
+    #joke-container details summary {
+      margin-bottom: 25px; }
+
+/*# sourceMappingURL=style.css.map */

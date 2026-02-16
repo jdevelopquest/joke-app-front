@@ -1,0 +1,9 @@
+/* sour-gummy-black */
+@font-face {
+	font-family: "Sour Gummy";
+	font-style: normal;
+	font-weight: 100% 125%;
+	font-stretch: 100%;
+	src: local("Sour Gummy Black"), local("SourGummy-Black"), url(sour-gummy-black.woff2) format("woff2");
+}
+

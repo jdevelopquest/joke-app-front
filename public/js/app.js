@@ -1,40 +1,48 @@
-function getRandomJoke() {
-    let joke = {
-        success: false,
-        message: 'Une erreur est survenue'
-    };
+async function getRandomJoke() {
     const urlApi = 'https://joke-app-api-js43.onrender.com/api/v1/jokes/random';
-    fetch(urlApi, {method: 'GET'})
-        .then(response => {
-            joke = response.json();
-            joke.success = response.status === 200;
-            return joke;
-        })
-        .catch(error => {
-        });
-    return new Promise(resolve => resolve(joke));
+    try {
+        const response = await fetch(urlApi);
+        const data = await response.json();
+        data.success = response.status === 200;
+        return data;
+    } catch (e) {
+        return {
+            success: false,
+            message: 'Une erreur est survenue'
+        };
+    }
 }
 
-function showJoke(joke) {
+function waitJoke() {
+    const jokeContainer = document.querySelector('#joke-container');
+    jokeContainer.innerHTML = '';
+    const messageHtml = document.createElement('p');
+    messageHtml.innerText = 'Chargement en cours...';
+    jokeContainer?.insertAdjacentElement('afterbegin', messageHtml);
+}
+
+function showJoke(data) {
     const jokeContainer = document.querySelector('#joke-container');
     jokeContainer.innerHTML = "";
-    if (joke.success) {
-        const jokeHtml = document.createElement('details');
-        jokeHtml.innerHTML =
-            "<details class='details-joke'>\n" +
-            "  <summary class='summary-joke'>${joke.question}</summary>\n" +
-            "  ${joke.response}\n" +
-            "</details>";
-        jokeContainer?.insertAdjacentElement('afterbegin', jokeHtml)
+    if (data.success) {
+        const details = document.createElement('details');
+        const summary = document.createElement('summary');
+        summary.textContent = data?.joke?.question ?? 'Il y a eu une erreur';
+        const response = document.createElement('div');
+        response.textContent = data?.joke?.response ?? 'La blague tombe à l\'eau';
+        details.append(summary, response);
+        jokeContainer?.insertAdjacentElement('afterbegin', details)
     } else {
         const errorHtml = document.createElement('p');
-        errorHtml.innerText = joke.message;
+        errorHtml.innerText = data.message;
         jokeContainer?.insertAdjacentElement('afterbegin', errorHtml);
     }
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    document.querySelector('#btn-joke')?.addEventListener('click', () => {
-        getRandomJoke().then(joke => showJoke(joke));
+    document.querySelector('#btn-joke')?.addEventListener('click', async () => {
+        waitJoke();
+        const joke = await getRandomJoke();
+        showJoke(joke);
     })
 });
