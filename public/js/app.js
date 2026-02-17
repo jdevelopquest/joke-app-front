@@ -40,9 +40,13 @@ function showJoke(data) {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    document.querySelector('#btn-joke')?.addEventListener('click', async () => {
+    const btnJoke = document.querySelector('#btn-joke');
+    if (!btnJoke) return;
+    btnJoke.addEventListener('click', async () => {
+        btnJoke.disabled = true;
         waitJoke();
         const joke = await getRandomJoke();
         showJoke(joke);
+        btnJoke.disabled = false;
     })
 });

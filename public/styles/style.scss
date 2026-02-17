@@ -35,7 +35,8 @@ header {
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding: 4rem 0;
+  padding: 60px 0;
+
   h1 {
     margin: 0 auto;
     width: 355px;
@@ -59,8 +60,18 @@ main {
 }
 
 button {
+  opacity: 1;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
   &:hover {
     cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 }
 
@@ -88,6 +99,10 @@ button {
 
     summary {
       margin-bottom: 25px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
