@@ -1,15 +1,27 @@
+import JokeFetchResult from "./JokeFetchResult.mjs";
+
 async function getRandomJoke() {
     const urlApi = 'https://joke-app-api-js43.onrender.com/api/v1/jokes/random';
+    function returnError() {
+        return new JokeFetchResult(false, null, 'Une erreur est survenue');
+    }
     try {
         const response = await fetch(urlApi);
         const data = await response.json();
-        data.success = response.status === 200;
-        return data;
+        if (response.ok) {
+            if (!data.joke) returnError();
+            if (!data.joke.question || typeof data.joke.question !== 'string') returnError();
+            if (!data.joke.response || typeof data.joke.response !== 'string') returnError();
+        } else {
+            if (!data.message || typeof data.message !== 'string') returnError();
+        }
+        return new JokeFetchResult(
+            response.ok,
+            data?.joke,
+            data?.message
+        );
     } catch (e) {
-        return {
-            success: false,
-            message: 'Une erreur est survenue'
-        };
+        returnError();
     }
 }
 
@@ -21,20 +33,20 @@ function waitJoke() {
     jokeContainer?.insertAdjacentElement('afterbegin', messageHtml);
 }
 
-function showJoke(data) {
+function showJoke(jokeFetchResult) {
     const jokeContainer = document.querySelector('#joke-container');
     jokeContainer.innerHTML = "";
-    if (data.success) {
+    if (jokeFetchResult.isSuccess()) {
         const details = document.createElement('details');
         const summary = document.createElement('summary');
-        summary.textContent = data?.joke?.question ?? 'Il y a eu une erreur';
+        summary.textContent = jokeFetchResult.getQuestion() ?? 'Il y a eu une erreur';
         const response = document.createElement('div');
-        response.textContent = data?.joke?.response ?? 'La blague tombe à l\'eau';
+        response.textContent = jokeFetchResult.getResponse() ?? 'La blague tombe à l\'eau';
         details.append(summary, response);
         jokeContainer?.insertAdjacentElement('afterbegin', details)
     } else {
         const errorHtml = document.createElement('p');
-        errorHtml.textContent = data.message;
+        errorHtml.textContent = jokeFetchResult.getMessage();
         jokeContainer?.insertAdjacentElement('afterbegin', errorHtml);
     }
 }
