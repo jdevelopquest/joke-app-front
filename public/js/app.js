@@ -17,7 +17,7 @@ function waitJoke() {
     const jokeContainer = document.querySelector('#joke-container');
     jokeContainer.innerHTML = '';
     const messageHtml = document.createElement('p');
-    messageHtml.innerText = 'Chargement en cours...';
+    messageHtml.textContent = 'Chargement en cours...';
     jokeContainer?.insertAdjacentElement('afterbegin', messageHtml);
 }
 
@@ -34,7 +34,7 @@ function showJoke(data) {
         jokeContainer?.insertAdjacentElement('afterbegin', details)
     } else {
         const errorHtml = document.createElement('p');
-        errorHtml.innerText = data.message;
+        errorHtml.textContent = data.message;
         jokeContainer?.insertAdjacentElement('afterbegin', errorHtml);
     }
 }
