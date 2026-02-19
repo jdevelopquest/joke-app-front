@@ -11,7 +11,6 @@ class JokeSection {
         this.resetJokeSection();
         this.jokeButton.addEventListener('click', async () => {
             this.jokeButton.disabled = true;
-            this.resetJokeSection();
             this.showWaitMessage();
             const jokeFetchResult = await getRandomJoke();
             this.showJoke(jokeFetchResult);
