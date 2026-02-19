@@ -16,13 +16,16 @@
 </header>
 
 <main>
-    <div id="joke-controls">
-        <button id="btn-joke" type="button">Afficher une blague</button>
-    </div>
-
-<!--    signaler que la page a été mise à jour-->
-<!--    présenter l'ensemble de la région modifiée-->
-    <div id="joke-container" aria-live="polite" aria-atomic="true"></div>
+    <!--    signaler que la page a été mise à jour-->
+    <!--    présenter l'ensemble de la région modifiée-->
+    <section class="joke-section" aria-live="polite" aria-atomic="true">
+        <button type="button">Afficher une blague</button>
+        <details>
+            <summary></summary>
+            <p></p>
+        </details>
+        <p></p>
+    </section>
 </main>
 
     <script src="./js/app.js" type="module"></script>
