@@ -75,26 +75,32 @@ button {
   }
 }
 
-#btn-joke {
-  color: var(--secondary-color);
-  width: 350px;
-  height: 50px;
-  padding: 1rem 2rem;
-  background-color: var(--main-background-color);
-  border: none;
-  //border-radius: 16px;
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-#joke-container {
+.joke-section {
   width: 100%;
   padding: 50px 25px;
   text-align: center;
 
+  button {
+    color: var(--secondary-color);
+    width: 350px;
+    height: 50px;
+    padding: 1rem 2rem;
+    background-color: var(--main-background-color);
+    border: none;
+    //border-radius: 16px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
   details {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+
     font-size: 2.6rem;
 
     summary {
@@ -103,6 +109,14 @@ button {
       &:hover {
         cursor: pointer;
       }
+    }
+  }
+
+  & > p {
+    display: none;
+
+    &.show {
+      display: block;
     }
   }
 }

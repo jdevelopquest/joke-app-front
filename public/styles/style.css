@@ -58,27 +58,33 @@ button {
     button:hover:disabled {
       cursor: not-allowed; }
 
-#btn-joke {
-  color: var(--secondary-color);
-  width: 350px;
-  height: 50px;
-  padding: 1rem 2rem;
-  background-color: var(--main-background-color);
-  border: none;
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px; }
-
-#joke-container {
+.joke-section {
   width: 100%;
   padding: 50px 25px;
   text-align: center; }
-  #joke-container details {
+  .joke-section button {
+    color: var(--secondary-color);
+    width: 350px;
+    height: 50px;
+    padding: 1rem 2rem;
+    background-color: var(--main-background-color);
+    border: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px; }
+  .joke-section details {
+    display: none;
     font-size: 2.6rem; }
-    #joke-container details summary {
+    .joke-section details.show {
+      display: block; }
+    .joke-section details summary {
       margin-bottom: 25px; }
-      #joke-container details summary:hover {
+      .joke-section details summary:hover {
         cursor: pointer; }
+  .joke-section > p {
+    display: none; }
+    .joke-section > p.show {
+      display: block; }
 
 /*# sourceMappingURL=style.css.map */
