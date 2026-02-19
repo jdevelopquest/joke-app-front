@@ -1,5 +1,6 @@
 import JokeSection from "./JokeSection.mjs";
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    const jokeSection = new JokeSection();
+    const main = document.querySelector("main");
+    const jokeSection = new JokeSection(main);
 });

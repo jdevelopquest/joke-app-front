@@ -1,14 +1,24 @@
 import getRandomJoke from "./getRandomJoke.mjs";
 
 class JokeSection {
-    constructor() {
-        this.jokeSection = document.querySelector('.joke-section');
-        this.jokeButton = this.jokeSection.querySelector('button');
-        this.jokeDetails = this.jokeSection.querySelector('details');
-        this.jokeQuestion = this.jokeDetails.querySelector('summary');
-        this.jokeResponse = this.jokeDetails.querySelector('p');
-        this.jokeMessage = this.jokeSection.querySelector(':scope > p');
-        this.resetJokeSection();
+    constructor(container = document.body) {
+        this.jokeSection = document.createElement('section');
+        this.jokeButton = document.createElement('button');
+        this.jokeDetails = document.createElement('details');
+        this.jokeQuestion = document.createElement('summary');
+        this.jokeResponse = document.createElement('p');
+        this.jokeMessage = document.createElement('p');
+        this.jokeSection.classList.add('joke-section');
+        this.jokeSection.ariaLive = "polite";
+        this.jokeSection.ariaAtomic = "true";
+        this.jokeButton.textContent = "Afficher une blague";
+        this.jokeButton.type = "button";
+        this.jokeSection.appendChild(this.jokeButton);
+        this.jokeSection.appendChild(this.jokeDetails);
+        this.jokeDetails.appendChild(this.jokeQuestion);
+        this.jokeDetails.appendChild(this.jokeResponse);
+        this.jokeSection.appendChild(this.jokeMessage);
+        container.appendChild(this.jokeSection);
         this.jokeButton.addEventListener('click', async () => {
             this.jokeButton.disabled = true;
             this.showWaitMessage();
