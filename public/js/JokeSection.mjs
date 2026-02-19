@@ -38,6 +38,8 @@ class JokeSection {
             this.jokeDetails.classList.add('show');
             this.jokeQuestion.textContent = jokeFetchResult.getQuestion() ?? 'Il y a eu une erreur';
             this.jokeResponse.textContent = jokeFetchResult.getResponse() ?? 'La blague tombe à l\'eau';
+            this.jokeMessage.classList.remove('show');
+            this.jokeMessage.textContent = "";
         } else {
             this.jokeMessage.classList.add('show');
             this.jokeMessage.textContent = jokeFetchResult.getMessage();
