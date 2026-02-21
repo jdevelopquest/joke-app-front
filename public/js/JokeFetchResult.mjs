@@ -1,7 +1,24 @@
 class JokeFetchResult {
-    constructor(success, joke, message) {
+    constructor(success, premise, punchline, message) {
         this.success = success;
-        this.joke = joke;
+        this.premise = premise;
+        this.punchline = punchline;
+        this.message = message;
+    }
+
+    setSuccess(success) {
+        this.success = success;
+    }
+
+    setPremise(premise) {
+        this.premise = premise;
+    }
+
+    setPunchline(punchline) {
+        this.punchline = punchline;
+    }
+
+    setMessage(message) {
         this.message = message;
     }
 
@@ -9,12 +26,12 @@ class JokeFetchResult {
         return this.success;
     }
 
-    getQuestion() {
-        return this.joke ? this.joke.question : null;
+    getPremise() {
+        return this.premise;
     }
 
-    getResponse() {
-        return this.joke ? this.joke.response : null;
+    getPunchline() {
+        return this.punchline;
     }
 
     getMessage() {

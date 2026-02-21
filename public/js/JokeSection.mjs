@@ -5,8 +5,8 @@ class JokeSection {
         this.jokeSection = document.createElement('section');
         this.jokeButton = document.createElement('button');
         this.jokeDetails = document.createElement('details');
-        this.jokeQuestion = document.createElement('summary');
-        this.jokeResponse = document.createElement('p');
+        this.jokePremise = document.createElement('summary');
+        this.jokePunchline = document.createElement('p');
         this.jokeMessage = document.createElement('p');
         this.jokeSection.classList.add('joke-section');
         this.jokeSection.ariaLive = "polite";
@@ -15,8 +15,8 @@ class JokeSection {
         this.jokeButton.type = "button";
         this.jokeSection.appendChild(this.jokeButton);
         this.jokeSection.appendChild(this.jokeDetails);
-        this.jokeDetails.appendChild(this.jokeQuestion);
-        this.jokeDetails.appendChild(this.jokeResponse);
+        this.jokeDetails.appendChild(this.jokePremise);
+        this.jokeDetails.appendChild(this.jokePunchline);
         this.jokeSection.appendChild(this.jokeMessage);
         container.appendChild(this.jokeSection);
         this.jokeButton.addEventListener('click', async () => {
@@ -30,8 +30,8 @@ class JokeSection {
 
     resetJokeSection() {
         this.jokeDetails.classList.remove('show');
-        this.jokeQuestion.textContent = "";
-        this.jokeResponse.textContent = "";
+        this.jokePremise.textContent = "";
+        this.jokePunchline.textContent = "";
         this.jokeMessage.classList.remove('show');
         this.jokeMessage.textContent = "";
     }
@@ -46,8 +46,8 @@ class JokeSection {
         this.resetJokeSection();
         if (jokeFetchResult.isSuccess()) {
             this.jokeDetails.classList.add('show');
-            this.jokeQuestion.textContent = jokeFetchResult.getQuestion() ?? 'Il y a eu une erreur';
-            this.jokeResponse.textContent = jokeFetchResult.getResponse() ?? 'La blague tombe à l\'eau';
+            this.jokePremise.textContent = jokeFetchResult.getPremise() ?? 'Il y a eu une erreur';
+            this.jokePunchline.textContent = jokeFetchResult.getPunchline() ?? 'La blague tombe à l\'eau';
         } else {
             this.jokeMessage.classList.add('show');
             this.jokeMessage.textContent = jokeFetchResult.getMessage();
