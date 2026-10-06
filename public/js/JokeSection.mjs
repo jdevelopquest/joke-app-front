@@ -8,17 +8,22 @@ class JokeSection {
         this.jokePremise = document.createElement('summary');
         this.jokePunchline = document.createElement('p');
         this.jokeMessage = document.createElement('p');
+
         this.jokeSection.classList.add('joke-section');
         this.jokeSection.ariaLive = "polite";
         this.jokeSection.ariaAtomic = "true";
+
         this.jokeButton.textContent = "Afficher une blague";
         this.jokeButton.type = "button";
+
         this.jokeSection.appendChild(this.jokeButton);
         this.jokeSection.appendChild(this.jokeDetails);
         this.jokeDetails.appendChild(this.jokePremise);
         this.jokeDetails.appendChild(this.jokePunchline);
         this.jokeSection.appendChild(this.jokeMessage);
+
         container.appendChild(this.jokeSection);
+
         this.jokeButton.addEventListener('click', async () => {
             this.jokeButton.disabled = true;
             this.showWaitMessage();
