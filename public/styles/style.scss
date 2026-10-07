@@ -1,3 +1,10 @@
+// Breakpoints Sass, alignes sur les seuils Tailwind par defaut.
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
 @font-face {
   font-family: "Sour Gummy";
   font-weight: 700;
@@ -39,6 +46,7 @@ body {
   background-color: var(--main-background-color);
   color: var(--main-color);
   font-size: 2rem;
+  line-height: 1.5;
   font-family: "Sour Gummy", sans-serif;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -47,17 +55,19 @@ header {
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding: 60px 0;
+  padding: 3rem 1.5rem 2rem;
 
   h1 {
     margin: 0 auto;
-    width: 355px;
-    height: 55px;
+    width: min(100%, 35.5rem);
+    min-height: 5.5rem;
+    padding: 0.5rem 1rem;
     text-align: center;
     border: 6px solid var(--main-boder-color);
     border-radius: 32px;
-    font-size: 3rem;
+    font-size: 2.4rem;
     font-weight: bold;
+    line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 4px;
   }
@@ -66,24 +76,42 @@ header {
 main {
   width: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
   text-align: center;
-  padding: 2rem 0;
+  padding: 0 0 3rem;
   color: var(--secondary-color);
 }
 
 button {
-  opacity: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: min(100%, 35rem);
+  min-height: 4.8rem;
+  padding: 1rem 2rem;
+  border: 3px solid var(--main-border-color);
+  border-radius: 1.2rem;
+  background-color: var(--control-background-color);
+  color: var(--control-text-color);
+  font: inherit;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 
   &:disabled {
     opacity: 0.5;
+    cursor: not-allowed;
   }
 
-  &:hover {
-    cursor: pointer;
-
-    &:disabled {
-      cursor: not-allowed;
-    }
+  &:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 3px;
   }
 }
 
@@ -93,39 +121,17 @@ button {
   align-items: center;
   gap: 1.5rem;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
-
-.theme-toggle {
-  border: 3px solid var(--main-border-color);
-  border-radius: 999px;
-  padding: 1rem 2rem;
-  background-color: var(--control-background-color);
-  color: var(--control-text-color);
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .joke-section {
   width: 100%;
-  padding: 50px 25px;
+  padding: 1rem 1.5rem 3rem;
   text-align: center;
-
-  button {
-    color: var(--secondary-color);
-    width: 350px;
-    height: 50px;
-    padding: 1rem 2rem;
-    background-color: var(--main-background-color);
-    border: 3px solid var(--main-border-color);
-    border-radius: 16px;
-    font-size: 1.4rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
 
   details {
     display: none;
@@ -134,10 +140,13 @@ button {
       display: block;
     }
 
-    font-size: 2.6rem;
+    max-width: 65ch;
+    font-size: 2.2rem;
+    line-height: 1.45;
 
     summary {
-      margin-bottom: 25px;
+      margin-bottom: 1.2rem;
+      line-height: 1.3;
 
       &:hover {
         cursor: pointer;
@@ -147,9 +156,86 @@ button {
 
   & > p {
     display: none;
+    max-width: 60ch;
+    line-height: 1.5;
 
     &.show {
       display: block;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  header {
+    padding-top: 4rem;
+    padding-bottom: 2.5rem;
+
+    h1 {
+      font-size: 2.8rem;
+    }
+  }
+
+  main {
+    gap: 1.6rem;
+  }
+
+  .joke-section {
+    gap: 2rem;
+    padding-top: 1.5rem;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  header {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  main {
+    gap: 2rem;
+  }
+
+  .joke-section {
+    padding-right: 4rem;
+    padding-left: 4rem;
+    padding-bottom: 4rem;
+    gap: 2.4rem;
+
+    details {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .joke-section {
+    max-width: 1024px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 2rem;
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .joke-section {
+    max-width: 1200px;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    gap: 2.8rem;
+  }
+}
+
+@media (min-width: $breakpoint-2xl) {
+  .joke-section {
+    max-width: 1440px;
+    gap: 3rem;
+
+    details {
+      font-size: 2.8rem;
     }
   }
 }
