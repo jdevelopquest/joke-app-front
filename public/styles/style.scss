@@ -5,6 +5,7 @@
   font-variation-settings: "wdth" 100;
   src: url("../fonts/sour-gummy/sour-gummy-black.woff2") format("woff2");
 }
+
 :root {
   --main-color: #E20010;
   --secondary-color: #3E1E13;
@@ -14,7 +15,7 @@
   --control-text-color: #3E1E13;
 }
 
-body[data-theme=dark] {
+body[data-theme="dark"] {
   --main-color: #FFD166;
   --secondary-color: #F5F5F5;
   --main-background-color: #111827;
@@ -47,18 +48,19 @@ header {
   margin: 0 auto;
   text-align: center;
   padding: 60px 0;
-}
-header h1 {
-  margin: 0 auto;
-  width: 355px;
-  height: 55px;
-  text-align: center;
-  border: 6px solid var(--main-boder-color);
-  border-radius: 32px;
-  font-size: 3rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 4px;
+
+  h1 {
+    margin: 0 auto;
+    width: 355px;
+    height: 55px;
+    text-align: center;
+    border: 6px solid var(--main-boder-color);
+    border-radius: 32px;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
 }
 
 main {
@@ -88,14 +90,16 @@ button {
   text-transform: uppercase;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-button:focus-visible {
-  outline: 3px solid var(--secondary-color);
-  outline-offset: 3px;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 3px;
+  }
 }
 
 .theme-controls {
@@ -116,25 +120,30 @@ button:focus-visible {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-}
-.joke-section details {
-  display: none;
-}
-.joke-section details.show {
-  display: block;
-}
-.joke-section details {
-  font-size: 2.6rem;
-}
-.joke-section details summary {
-  margin-bottom: 25px;
-}
-.joke-section details summary:hover {
-  cursor: pointer;
-}
-.joke-section > p {
-  display: none;
-}
-.joke-section > p.show {
-  display: block;
+
+  details {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+
+    font-size: 2.6rem;
+
+    summary {
+      margin-bottom: 25px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  & > p {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
 }
