@@ -3,14 +3,17 @@
   font-weight: 700;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-  src: url("../fonts/sour-gummy/sour-gummy-black.woff2") format("woff2"); }
+  src: url("../fonts/sour-gummy/sour-gummy-black.woff2") format("woff2");
+}
+
 :root {
   --main-color: #E20010;
   --secondary-color: #3E1E13;
   --main-background-color: #FCF000;
   --main-border-color: #F8F4A9;
   --control-background-color: #fff8c7;
-  --control-text-color: #3E1E13; }
+  --control-text-color: #3E1E13;
+}
 
 body[data-theme="dark"] {
   --main-color: #FFD166;
@@ -18,15 +21,18 @@ body[data-theme="dark"] {
   --main-background-color: #111827;
   --main-border-color: #374151;
   --control-background-color: #1f2937;
-  --control-text-color: #F5F5F5; }
+  --control-text-color: #F5F5F5;
+}
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body {
   min-height: 100vh;
@@ -34,40 +40,52 @@ body {
   color: var(--main-color);
   font-size: 2rem;
   font-family: "Sour Gummy", sans-serif;
-  transition: background-color 0.2s ease, color 0.2s ease; }
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
 
 header {
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding: 60px 0; }
-  header h1 {
-    margin: 0 auto;
-    width: 355px;
-    height: 55px;
-    text-align: center;
-    border: 6px solid var(--main-boder-color);
-    border-radius: 32px;
-    font-size: 3rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 4px; }
+  padding: 60px 0;
+}
+
+header h1 {
+  margin: 0 auto;
+  width: 355px;
+  height: 55px;
+  text-align: center;
+  border: 6px solid var(--main-boder-color);
+  border-radius: 32px;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
 
 main {
   width: 100%;
   margin: 0 auto;
   text-align: center;
   padding: 2rem 0;
-  color: var(--secondary-color); }
+  color: var(--secondary-color);
+}
 
 button {
-  opacity: 1; }
-  button:disabled {
-    opacity: 0.5; }
-  button:hover {
-    cursor: pointer; }
-    button:hover:disabled {
-      cursor: not-allowed; }
+  opacity: 1;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:hover:disabled {
+  cursor: not-allowed;
+}
 
 .theme-controls {
   display: flex;
@@ -75,7 +93,8 @@ button {
   align-items: center;
   gap: 1.5rem;
   flex-wrap: wrap;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+}
 
 .theme-toggle {
   border: 3px solid var(--main-border-color);
@@ -86,37 +105,57 @@ button {
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+}
 
 .joke-section {
   width: 100%;
   padding: 50px 25px;
-  text-align: center; }
-  .joke-section button {
-    color: var(--secondary-color);
-    width: 350px;
-    height: 50px;
-    padding: 1rem 2rem;
-    background-color: var(--main-background-color);
-    border: 3px solid var(--main-border-color);
-    border-radius: 16px;
-    font-size: 1.4rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px; }
-  .joke-section details {
-    display: none;
-    margin-top: 2rem;
-    font-size: 2.6rem; }
-    .joke-section details.show {
-      display: block; }
-    .joke-section details summary {
-      margin-bottom: 25px; }
-      .joke-section details summary:hover {
-        cursor: pointer; }
-  .joke-section > p {
-    display: none; }
-    .joke-section > p.show {
-      display: block; }
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.joke-section button {
+  color: var(--secondary-color);
+  width: 350px;
+  height: 50px;
+  padding: 1rem 2rem;
+  background-color: var(--main-background-color);
+  border: 3px solid var(--main-border-color);
+  border-radius: 16px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.joke-section details {
+  display: none;
+  font-size: 2.6rem;
+}
+
+.joke-section details.show {
+  display: block;
+}
+
+.joke-section details summary {
+  margin-bottom: 25px;
+}
+
+.joke-section details summary:hover {
+  cursor: pointer;
+}
+
+.joke-section>p {
+  display: none;
+}
+
+.joke-section>p.show {
+  display: block;
+}
 
 /*# sourceMappingURL=style.css.map */
