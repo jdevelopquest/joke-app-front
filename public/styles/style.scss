@@ -1,3 +1,10 @@
+// Breakpoints Sass, alignes sur les seuils Tailwind par defaut.
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
 @font-face {
   font-family: "Sour Gummy";
   font-weight: 700;
@@ -47,16 +54,17 @@ header {
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding: 60px 0;
+  padding: 4rem 1.5rem;
 
   h1 {
     margin: 0 auto;
-    width: 355px;
-    height: 55px;
+    width: min(100%, 35.5rem);
+    min-height: 5.5rem;
+    padding: 0.5rem 1rem;
     text-align: center;
     border: 6px solid var(--main-boder-color);
     border-radius: 32px;
-    font-size: 3rem;
+    font-size: 2.4rem;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -113,7 +121,7 @@ button {
 
 .joke-section {
   width: 100%;
-  padding: 50px 25px;
+  padding: 4rem 2.5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -144,6 +152,62 @@ button {
 
     &.show {
       display: block;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  header {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    h1 {
+      font-size: 2.8rem;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  header {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  .joke-section {
+    padding-right: 4rem;
+    padding-left: 4rem;
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .joke-section {
+    max-width: 1024px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .joke-section {
+    max-width: 1200px;
+    padding-right: 5rem;
+    padding-left: 5rem;
+  }
+}
+
+@media (min-width: $breakpoint-2xl) {
+  .joke-section {
+    max-width: 1440px;
+    gap: 3rem;
+
+    details {
+      font-size: 3rem;
     }
   }
 }
