@@ -1,6 +1,5 @@
 # Caramblagues
 
-Projet de sélection | CDA.  
 Miniapplication web (landing page) permettant d’afficher une blague aléatoire au clic sur un bouton.
 
 ## Accès
