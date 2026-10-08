@@ -140,12 +140,12 @@ button:focus-visible {
 .joke-section details summary:hover {
   cursor: pointer;
 }
-.joke-section > p {
+.joke-section [data-joke-message] {
   display: none;
   max-width: 60ch;
   line-height: 1.5;
 }
-.joke-section > p.show {
+.joke-section [data-joke-message].show {
   display: block;
 }
 
