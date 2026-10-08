@@ -24,6 +24,7 @@ class JokeSection {
         this.jokePremise.textContent = "";
         this.jokePunchline.textContent = "";
         this.jokeMessage.classList.remove('show');
+        this.jokeMessage.classList.remove('error');
         this.jokeMessage.textContent = "";
     }
 
@@ -41,6 +42,7 @@ class JokeSection {
             this.jokePunchline.textContent = jokeFetchResult.getPunchline() ?? 'La blague tombe à l\'eau';
         } else {
             this.jokeMessage.classList.add('show');
+            this.jokeMessage.classList.add('error');
             this.jokeMessage.textContent = jokeFetchResult.getMessage();
         }
     }

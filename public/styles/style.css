@@ -6,21 +6,53 @@
   src: url("../fonts/sour-gummy/sour-gummy-black.woff2") format("woff2");
 }
 :root {
-  --main-color: #E20010;
-  --secondary-color: #3E1E13;
-  --main-background-color: #FCF000;
-  --main-border-color: #F8F4A9;
-  --control-background-color: #fff8c7;
-  --control-text-color: #3E1E13;
+  color-scheme: light;
+  --color-bg: #ffffff;
+  --color-surface: #f3f4f6;
+  --color-text: #1f2937;
+  --color-muted: #4b5563;
+  --color-border: #6b7280;
+  --color-primary: #1d4ed8;
+  --color-primary-text: #ffffff;
+  --color-error: #b91c1c;
 }
 
-body[data-theme=dark] {
-  --main-color: #FFD166;
-  --secondary-color: #F5F5F5;
-  --main-background-color: #111827;
-  --main-border-color: #374151;
-  --control-background-color: #1f2937;
-  --control-text-color: #F5F5F5;
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-bg: #111827;
+    --color-surface: #1f2937;
+    --color-text: #f9fafb;
+    --color-muted: #d1d5db;
+    --color-border: #9ca3af;
+    --color-primary: #93c5fd;
+    --color-primary-text: #111827;
+    --color-error: #fca5a5;
+  }
+}
+
+body[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #ffffff;
+  --color-surface: #f3f4f6;
+  --color-text: #1f2937;
+  --color-muted: #4b5563;
+  --color-border: #6b7280;
+  --color-primary: #1d4ed8;
+  --color-primary-text: #ffffff;
+  --color-error: #b91c1c;
+}
+
+body[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827;
+  --color-surface: #1f2937;
+  --color-text: #f9fafb;
+  --color-muted: #d1d5db;
+  --color-border: #9ca3af;
+  --color-primary: #93c5fd;
+  --color-primary-text: #111827;
+  --color-error: #fca5a5;
 }
 
 html {
@@ -35,8 +67,10 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: var(--main-background-color);
-  color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   font-size: 2rem;
   line-height: 1.5;
   font-family: "Sour Gummy", sans-serif;
@@ -55,7 +89,7 @@ header h1 {
   min-height: 5.5rem;
   padding: 0.5rem 1rem;
   text-align: center;
-  border: 6px solid var(--main-boder-color);
+  border: 6px solid var(--color-border);
   border-radius: 32px;
   font-size: 2.4rem;
   font-weight: bold;
@@ -65,6 +99,7 @@ header h1 {
 }
 
 main {
+  flex: 1;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -72,7 +107,14 @@ main {
   gap: 1.2rem;
   text-align: center;
   padding: 0 0 3rem;
-  color: var(--secondary-color);
+  color: var(--color-text);
+}
+
+footer {
+  width: 100%;
+  padding: 1.5rem;
+  color: var(--color-muted);
+  text-align: center;
 }
 
 button {
@@ -82,10 +124,10 @@ button {
   width: min(100%, 35rem);
   min-height: 4.8rem;
   padding: 1rem 2rem;
-  border: 3px solid var(--main-border-color);
+  border: 3px solid var(--color-border);
   border-radius: 1.2rem;
-  background-color: var(--control-background-color);
-  color: var(--control-text-color);
+  background-color: var(--color-primary);
+  color: var(--color-primary-text);
   font: inherit;
   font-size: 1.4rem;
   font-weight: bold;
@@ -100,7 +142,7 @@ button:disabled {
   cursor: not-allowed;
 }
 button:focus-visible {
-  outline: 3px solid var(--secondary-color);
+  outline: 3px solid var(--color-primary);
   outline-offset: 3px;
 }
 
@@ -113,7 +155,9 @@ button:focus-visible {
 }
 
 .joke-section {
+  flex: 1;
   width: 100%;
+  background-color: var(--color-surface);
   padding: 1rem 1.5rem 3rem;
   text-align: center;
   display: flex;
@@ -144,9 +188,13 @@ button:focus-visible {
   display: none;
   max-width: 60ch;
   line-height: 1.5;
+  color: var(--color-muted);
 }
 .joke-section [data-joke-message].show {
   display: block;
+}
+.joke-section [data-joke-message].error {
+  color: var(--color-error);
 }
 
 @media (min-width: 640px) {
