@@ -16,7 +16,17 @@
 </header>
 
 <main>
-
+    <div class="theme-controls">
+        <button type="button" class="theme-toggle" data-theme-toggle></button>
+    </div>
+    <section class="joke-section" data-joke-section aria-live="polite" aria-atomic="true">
+        <button type="button" data-joke-button>Afficher une blague</button>
+        <details data-joke-details>
+            <summary data-joke-premise></summary>
+            <p data-joke-punchline></p>
+        </details>
+        <p data-joke-message></p>
+    </section>
 </main>
 
 <script src="./js/app.js" type="module">

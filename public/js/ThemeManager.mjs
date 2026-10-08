@@ -1,16 +1,7 @@
 class ThemeManager {
-    constructor(container = document.body) {
-        this.container = container;
+    constructor(toggleButton) {
         this.theme = localStorage.getItem('theme') || 'light';
-        this.controls = document.createElement('div');
-        this.toggleButton = document.createElement('button');
-
-        this.controls.classList.add('theme-controls');
-
-        this.toggleButton.type = 'button';
-        this.toggleButton.classList.add('theme-toggle');
-
-        this.controls.appendChild(this.toggleButton);
+        this.toggleButton = toggleButton;
 
         this.toggleButton.addEventListener('click', () => {
             this.theme = this.theme === 'dark' ? 'light' : 'dark';
@@ -18,7 +9,6 @@ class ThemeManager {
         });
 
         this.applyTheme();
-        this.container.appendChild(this.controls);
     }
 
     applyTheme() {

@@ -2,7 +2,8 @@ import JokeSection from "./JokeSection.mjs";
 import ThemeManager from "./ThemeManager.mjs";
 
 document.addEventListener("DOMContentLoaded", () => {
-    const main = document.querySelector("main");
-    const themeManager = new ThemeManager(main);
-    const jokeSection = new JokeSection(main);
+    const themeToggle = document.querySelector("[data-theme-toggle]");
+    const jokeSection = document.querySelector("[data-joke-section]");
+    const themeManager = new ThemeManager(themeToggle);
+    const joke = new JokeSection(jokeSection);
 });
