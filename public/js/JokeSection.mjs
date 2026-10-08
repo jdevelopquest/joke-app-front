@@ -20,7 +20,7 @@ class JokeSection {
 
     resetJokeSection() {
         this.jokeDetails.classList.remove('show');
-                this.jokeDetails.open = false;
+        this.jokeDetails.open = false;
         this.jokePremise.textContent = "";
         this.jokePunchline.textContent = "";
         this.jokeMessage.classList.remove('show');
