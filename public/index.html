@@ -5,19 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Joke app practice">
     <meta name="keywords" content="joke, app, practice">
-    <title>Caramblagues</title>
+    <title>Blagues pas ouf!</title>
     <link rel="icon" type="image/svg" href="./images/favicon.png">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
 
 <header>
-    <h1>Caramblagues</h1>
+    <h1>Blagues pas ouf!</h1>
 </header>
 
 <main>
-
+    <div class="theme-controls">
+        <button type="button" class="theme-toggle" data-theme-toggle>Passer en mode sombre</button>
+    </div>
+    <section class="joke-section" data-joke-section aria-label="Blague aléatoire">
+        <button type="button" data-joke-button>Afficher une blague</button>
+        <div class="joke-output" data-joke-output aria-live="polite" aria-atomic="true">
+            <details data-joke-details>
+                <summary data-joke-premise></summary>
+                <p data-joke-punchline></p>
+            </details>
+            <p data-joke-message></p>
+        </div>
+    </section>
 </main>
+
+<footer>Blagues pas ouf!</footer>
 
 <script src="./js/app.js" type="module">
 
