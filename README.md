@@ -1,6 +1,6 @@
-# Caramblagues
+# Blagues pas ouf!
 
-Miniapplication web (landing page) permettant d’afficher une blague aléatoire au clic sur un bouton.
+Mini application web (landing page) permettant d’afficher une blague aléatoire au clic sur un bouton.
 
 ## Accès
 https://jdevelopquest.github.io/joke-app-front/public/index.html
