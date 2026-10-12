@@ -17,21 +17,27 @@
 
 <main>
     <div class="theme-controls">
-        <button type="button" class="theme-toggle" data-theme-toggle>Passer en mode sombre</button>
+        <button type="button" class="theme-toggle">Passer en mode sombre</button>
     </div>
-    <section class="joke-section" data-joke-section aria-label="Blague aléatoire">
-        <button type="button" data-joke-button>Afficher une blague</button>
-        <div class="joke-output" data-joke-output aria-live="polite" aria-atomic="true">
-            <details data-joke-details>
-                <summary data-joke-premise></summary>
-                <p data-joke-punchline></p>
-            </details>
-            <p data-joke-message></p>
+    <section class="joke-section" aria-label="Blague aléatoire">
+        <div class="joke-output" aria-live="polite" aria-atomic="true">
+            <button type="button" class="joke-button" aria-label="Afficher une blague aléatoire" title="Afficher une blague aléatoire">
+                <span class="joke-button-icon" aria-hidden="true"></span>
+            </button>
+            <div class="joke-dialogue">
+                <p class="joke-dialogue-premise"></p>
+                <p class="joke-dialogue-reaction">🤔 💭</p>
+                <button type="button" class="joke-dialogue-reveal" aria-label="Révéler la chute" title="Révéler la chute" aria-controls="joke-dialogue-punchline" aria-expanded="false">
+                    <span class="joke-dialogue-reveal-icon" aria-hidden="true"></span>
+                </button>
+                <p class="joke-dialogue-punchline" id="joke-dialogue-punchline" aria-hidden="true"></p>
+            </div>
+            <p class="joke-message"></p>
         </div>
     </section>
 </main>
 
-<footer>Blagues pas ouf!</footer>
+<footer><p>Blagues pas ouf! distributeur de blagues.</p></footer>
 
 <script src="./js/app.js" type="module">
 
