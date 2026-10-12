@@ -8,7 +8,6 @@ class JokeSection {
         this.jokeDialoguePremise = jokeSection.querySelector('.joke-dialogue-premise');
         this.jokeDialoguePunchline = jokeSection.querySelector('.joke-dialogue-punchline');
         this.jokeDialogueReveal = jokeSection.querySelector('.joke-dialogue-reveal');
-        this.jokeMessage = jokeSection.querySelector('.joke-message');
 
         this.jokeDialogueReveal.addEventListener('click', () => this.togglePunchline());
         this.jokeButton.addEventListener('click', () => this.loadJoke());
@@ -24,7 +23,7 @@ class JokeSection {
     }
 
     resetJokeSection() {
-        this.jokeDialogue.classList.remove('show');
+        this.jokeDialogue.classList.remove('show', 'is-status', 'is-error');
         this.jokeDialoguePremise.textContent = "";
         this.jokeDialoguePunchline.textContent = "";
         this.jokeDialoguePunchline.classList.remove('is-revealed');
@@ -32,15 +31,12 @@ class JokeSection {
         this.jokeDialogueReveal.setAttribute('aria-expanded', 'false');
         this.jokeDialogueReveal.setAttribute('aria-label', 'Révéler la chute');
         this.jokeDialogueReveal.setAttribute('title', 'Révéler la chute');
-        this.jokeMessage.classList.remove('show');
-        this.jokeMessage.classList.remove('error');
-        this.jokeMessage.textContent = "";
     }
 
     showWaitMessage() {
         this.resetJokeSection();
-        this.jokeMessage.classList.add('show');
-        this.jokeMessage.textContent = "Chargement en cours...";
+        this.jokeDialoguePremise.textContent = 'Chargement en cours...';
+        this.jokeDialogue.classList.add('show', 'is-status');
     }
 
     showJoke(jokeFetchResult) {
@@ -50,9 +46,8 @@ class JokeSection {
             this.jokeDialoguePremise.textContent = jokeFetchResult.getPremise() ?? 'Il y a eu une erreur';
             this.jokeDialoguePunchline.textContent = jokeFetchResult.getPunchline() ?? 'La blague tombe à l\'eau';
         } else {
-            this.jokeMessage.classList.add('show');
-            this.jokeMessage.classList.add('error');
-            this.jokeMessage.textContent = jokeFetchResult.getMessage();
+            this.jokeDialoguePremise.textContent = jokeFetchResult.getMessage();
+            this.jokeDialogue.classList.add('show', 'is-status', 'is-error');
         }
     }
 
