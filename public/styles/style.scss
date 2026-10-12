@@ -190,7 +190,7 @@ button {
     grid-template-columns: 4.8rem minmax(0, 1fr);
     column-gap: 1.6rem;
     row-gap: 1.6rem;
-    align-items: center;
+    align-items: start;
     width: min(100%, 75ch);
     padding: clamp(1.6rem, 4vw, 3.2rem);
     text-align: left;
@@ -223,6 +223,22 @@ button {
 
     &.show {
       display: contents;
+    }
+
+    &.is-status {
+      .joke-dialogue-reaction,
+      .joke-dialogue-reveal,
+      .joke-dialogue-punchline {
+        display: none;
+      }
+
+      .joke-dialogue-premise {
+        color: var(--color-muted);
+      }
+
+      &.is-error .joke-dialogue-premise {
+        color: var(--color-error);
+      }
     }
 
     p {
@@ -283,20 +299,6 @@ button {
     -webkit-mask: url("../images/reveal.svg") center / contain no-repeat;
   }
 
-  .joke-message {
-    display: none;
-    grid-column: 1 / -1;
-    grid-row: 2;
-    color: var(--color-muted);
-
-    &.show {
-      display: block;
-    }
-
-    &.error {
-      color: var(--color-error);
-    }
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
