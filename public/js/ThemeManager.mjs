@@ -26,9 +26,10 @@ class ThemeManager {
     applyTheme() {
         const isDark = this.getActiveTheme() === 'dark';
         if (this.theme === null) {
-            delete document.body.dataset.theme;
+            document.body.classList.remove('theme-light', 'theme-dark');
         } else {
-            document.body.dataset.theme = this.theme;
+            document.body.classList.remove('theme-light', 'theme-dark');
+            document.body.classList.add(`theme-${this.theme}`);
             localStorage.setItem('theme', this.theme);
         }
         this.toggleButton.textContent = isDark ? 'Passer en mode clair' : 'Passer en mode sombre';
