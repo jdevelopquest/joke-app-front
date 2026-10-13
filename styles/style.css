@@ -90,7 +90,6 @@ header {
 }
 header h1 {
   margin: 0 auto;
-  width: min(100%, 35.5rem);
   min-height: 5.5rem;
   text-align: center;
   font-size: 2.4rem;
@@ -98,6 +97,7 @@ header h1 {
   line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 4px;
+  white-space: nowrap;
 }
 
 main {
@@ -115,6 +115,9 @@ footer {
   width: 100%;
   color: var(--color-muted);
   text-align: center;
+}
+footer span {
+  display: block;
 }
 
 button {
@@ -178,7 +181,8 @@ button:focus-visible {
   column-gap: 1.6rem;
   row-gap: 1.6rem;
   align-items: start;
-  width: min(100%, 75ch);
+  width: min(100%, 60ch);
+  margin-inline: auto;
   padding: clamp(1.6rem, 4vw, 3.2rem);
   text-align: left;
   font-size: 2.2rem;
@@ -208,7 +212,6 @@ button:focus-visible {
 .joke-section .joke-dialogue.show {
   display: contents;
 }
-.joke-section .joke-dialogue.is-status .joke-dialogue-reaction,
 .joke-section .joke-dialogue.is-status .joke-dialogue-reveal,
 .joke-section .joke-dialogue.is-status .joke-dialogue-punchline {
   display: none;
@@ -221,6 +224,7 @@ button:focus-visible {
 }
 .joke-section .joke-dialogue p {
   margin: 0;
+  cursor: default;
   animation: joke-dialogue-paragraph-in 420ms ease-out both;
 }
 .joke-section .joke-dialogue-premise {
@@ -232,13 +236,6 @@ button:focus-visible {
 .joke-section .joke-dialogue-punchline {
   width: 100%;
   text-align: left;
-}
-.joke-section .joke-dialogue-reaction {
-  grid-column: 2;
-  grid-row: 2;
-  color: var(--color-muted);
-  text-align: left;
-  animation-delay: 160ms;
 }
 .joke-section .joke-dialogue-punchline {
   grid-column: 2;
@@ -260,6 +257,10 @@ button:focus-visible {
   grid-column: 1;
   grid-row: 3;
   justify-self: start;
+}
+.joke-section .joke-dialogue-reveal[aria-expanded=true] .joke-dialogue-reveal-icon {
+  mask: url("../assets/icons/text-show-on.svg") center/contain no-repeat;
+  -webkit-mask: url("../assets/icons/text-show-on.svg") center/contain no-repeat;
 }
 .joke-section .joke-dialogue-reveal-icon {
   width: 2.4rem;
@@ -287,6 +288,9 @@ button:focus-visible {
   }
   main {
     gap: 2rem;
+  }
+  footer span {
+    display: inline;
   }
   .joke-section {
     gap: 2rem;
@@ -344,5 +348,3 @@ button:focus-visible {
     font-size: 2.8rem;
   }
 }
-
-/*# sourceMappingURL=style.css.map */

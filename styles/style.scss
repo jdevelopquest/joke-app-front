@@ -99,7 +99,6 @@ header {
 
   h1 {
     margin: 0 auto;
-    width: min(100%, 35.5rem);
     min-height: 5.5rem;
     text-align: center;
     font-size: 2.4rem;
@@ -107,6 +106,7 @@ header {
     line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 4px;
+    white-space: nowrap;
   }
 }
 
@@ -125,6 +125,10 @@ footer {
   width: 100%;
   color: var(--color-muted);
   text-align: center;
+
+  span {
+    display: block;
+  }
 }
 
 button {
@@ -192,7 +196,8 @@ button {
     column-gap: 1.6rem;
     row-gap: 1.6rem;
     align-items: start;
-    width: min(100%, 75ch);
+    width: min(100%, 60ch);
+    margin-inline: auto;
     padding: clamp(1.6rem, 4vw, 3.2rem);
     text-align: left;
     font-size: 2.2rem;
@@ -227,8 +232,6 @@ button {
     }
 
     &.is-status {
-
-      .joke-dialogue-reaction,
       .joke-dialogue-reveal,
       .joke-dialogue-punchline {
         display: none;
@@ -245,6 +248,7 @@ button {
 
     p {
       margin: 0;
+      cursor: default;
       animation: joke-dialogue-paragraph-in 420ms ease-out both;
     }
   }
@@ -259,14 +263,6 @@ button {
   .joke-dialogue-punchline {
     width: 100%;
     text-align: left;
-  }
-
-  .joke-dialogue-reaction {
-    grid-column: 2;
-    grid-row: 2;
-    color: var(--color-muted);
-    text-align: left;
-    animation-delay: 160ms;
   }
 
   .joke-dialogue-punchline {
@@ -291,6 +287,11 @@ button {
     grid-column: 1;
     grid-row: 3;
     justify-self: start;
+
+    &[aria-expanded="true"] .joke-dialogue-reveal-icon {
+      mask: url("../assets/icons/text-show-on.svg") center / contain no-repeat;
+      -webkit-mask: url("../assets/icons/text-show-on.svg") center / contain no-repeat;
+    }
   }
 
   .joke-dialogue-reveal-icon {
@@ -327,6 +328,10 @@ button {
 
   main {
     gap: 2rem;
+  }
+
+  footer span {
+    display: inline;
   }
 
   .joke-section {
