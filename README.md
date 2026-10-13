@@ -3,7 +3,7 @@
 Mini application web (landing page) permettant d’afficher une blague aléatoire au clic sur un bouton.
 
 ## Accès
-https://jdevelopquest.github.io/joke-app-front/public/index.html
+[blagues-pas-ouf](https://jdevelopquest.github.io/joke-app-front/index.html)
 
 ## Fonctionnalités
 
